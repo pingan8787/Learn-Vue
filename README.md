@@ -1,5 +1,7 @@
 # learn-vue2
 
+From https://juejin.cn/post/7026867875990208543
+
 ## Project setup
 ```
 yarn install
