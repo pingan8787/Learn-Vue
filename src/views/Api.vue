@@ -17,7 +17,7 @@ export default {
     };
   },
   mounted() {
-      this.routes = this.$router.options.routes.filter(item => item.path.includes('/modifiers/'));
+      this.routes = this.$router.options.routes.filter(item => item.path.includes('/api/'));
   },
   methods: {
     goView(route) {

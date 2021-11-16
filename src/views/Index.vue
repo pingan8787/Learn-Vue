@@ -2,7 +2,7 @@
   <div class="home">
     <ul>
       <li v-for="(route, i) in routes" :key="i" @click="goView(route)">
-        {{ route.path }}
+        学习「{{ route.title }}」内容
       </li>
     </ul>
   </div>
@@ -10,21 +10,25 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Index",
   data() {
     return {
-      routes: [],
+      routes: [
+          {path: '/home', title: '指令'},
+          {path: '/api', title: 'API'}
+      ],
     };
   },
   mounted() {
-      this.routes = this.$router.options.routes.filter(item => item.path.includes('/modifiers/'));
+    // this.setRoutes();s
   },
   methods: {
+    setRoutes() {
+      this.routes = this.$router.options.routes;
+    },
     goView(route) {
-      const { name } = route;
-      this.$router.push({
-        name,
-      });
+      const { path } = route;
+      this.$router.push(path);
     },
   },
 };

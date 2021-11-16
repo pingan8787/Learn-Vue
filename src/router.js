@@ -16,7 +16,6 @@ const registerRoutes = () => {
     resolve 是一个函数，它返回 request 被解析后得到的模块 id。
     keys 也是一个函数，它返回一个数组，由所有可能被此 context module 处理的请求（译者注：参考下面第二段代码中的 key）组成。
    */
-  let entryRoute;
   const routes = contextInfo.keys().map((filePath) => {
     // filePath 形如 ./Home.vue、./modifiers/capture.vue
     // path我们希望是/home、/modifiers/capture
@@ -32,14 +31,13 @@ const registerRoutes = () => {
       name,
       component
     }
-    if(path === '/home'){
-      entryRoute = {...result, path: '/'}
+
+    if(path === '/index'){
+      result.path = '/'
     }
 
     return result
   })
-
-  entryRoute && routes.push(entryRoute)
 
   return routes
 }

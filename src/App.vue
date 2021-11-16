@@ -1,8 +1,24 @@
 <template>
   <div id="app">
+    <div class="home">
+      <span @click="goView">回到首页</span>
+    </div>
     <router-view></router-view>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  methods: {
+    goView() {
+      if(window.location.hash !== '#/'){
+        this.$router.push('/');
+      }
+    },
+  },
+};
+</script>
 
 <style>
 body{
@@ -35,5 +51,9 @@ body{
 *{
   margin: 0;
   padding: 0;
+}
+.home span{
+  cursor: pointer;
+  font-size: 14px;
 }
 </style>
