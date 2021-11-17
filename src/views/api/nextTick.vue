@@ -10,6 +10,11 @@
   </div>
 </template>
 <script>
+/**
+ * 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+ * 文档地址：https://cn.vuejs.org/v2/api/#Vue-nextTick
+ * 源码地址：https://github.com/vuejs/vue/blob/dev/src/core/util/next-tick.js
+ */
 export default {
   data() {
     return {
